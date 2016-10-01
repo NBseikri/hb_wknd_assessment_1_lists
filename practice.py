@@ -254,6 +254,9 @@ def word_lengths(words):
         >>> word_lengths(["hello", "hey", "hello", "spam"])
         [5, 3, 5, 4]
     """
+    #If I were writing this function from scratch, I would include the following docstring immediately after declaring the function:
+    #"""This function evaluates the length of each word in an inputted list and returns that length in a new list"""
+    #(Including my docstring within the docstring above interfered with the doctest so I am including it here as a comment instead)
 
     word_lengths = []
     #Creates a list to house the lengths of all words in the inputted words list
@@ -286,12 +289,24 @@ def sum_numbers(numbers):
         >>> sum_numbers([])
         0
     """
+    #If I were writing this function from scratch, I would include the following docstring immediately after declaring the function:
+    #"""This function returns the sum of all numbers in an inputted list of numbers"""
+    #(Including my docstring within the docstring above interfered with the doctest so I am including it here as a comment instead)
+
     sum_numbers = 0
+    #Sets the counter variable sum_numbers to a starting value of zero
 
     for number in numbers:
+    #Evaluates each number in the inputted numbers list
         sum_numbers += number
+        #In each iteration, this line increases the value of sum_numbers by the value of number 
 
     return sum_numbers
+    #Returns the sum of all numbers in the inputted numbers list
+
+
+
+    #Instead of using sum_numbers += number, the same output could be achieved with sum_numbers = sum_ numbers + number
 
 def mult_numbers(numbers):
     """Return product (result of multiplication) of numbers in list.
@@ -312,8 +327,12 @@ def mult_numbers(numbers):
         >>> mult_numbers([])
         1
     """
+    mult_numbers = 1
 
-    return None
+    for number in numbers:
+        mult_numbers = mult_numbers * number
+        
+    return mult_numbers
 
 
 def join_strings(words):
