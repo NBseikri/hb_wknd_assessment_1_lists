@@ -225,9 +225,22 @@ def halvesies(numbers):
         >>> halvesies([1, 5])
         [0.5, 2.5]
     """
+    #If I were writing this function from scratch, I would include the following docstring immediately after declaring the function:
+    #"""This function evaluates each number in a list and prints that quotient of that number divided by two"""
+    #(Including my docstring within the docstring above interfered with the doctest so I am including it here as a comment instead)
 
-    return []
+    halved_numbers = []
+    #Created a list to house all of the halved numbers that emerge from the for loop
 
+    for number in numbers:
+    #Evaluates each number in the inputted numbers list
+        number = float(number) / 2
+        #Reassigns number to the quotient of itself divided by two; float is with regard to number so as to avoide the default rounding
+        halved_numbers.append(number)
+        #Adds the newly halved number the the halved_numbers list above
+    
+    return halved_numbers
+    #Returns a list of each halved number in the number list 
 
 def word_lengths(words):
     """Return the length of words in the input list.
