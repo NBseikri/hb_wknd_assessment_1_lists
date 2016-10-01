@@ -328,11 +328,14 @@ def mult_numbers(numbers):
         1
     """
     mult_numbers = 1
+    #Set mult_numbers counter to 1 (could not use zero because x * 0 is always 0)
 
     for number in numbers:
+    #Evaluates each number in the 
         mult_numbers = mult_numbers * number
-        
+        #Multiplies the number evaluated in the first loop by one and all other numbers by the previous number in the numbers list
     return mult_numbers
+    #Returns the product of all numbers multiplied in the list
 
 
 def join_strings(words):
