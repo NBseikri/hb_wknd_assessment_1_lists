@@ -286,9 +286,12 @@ def sum_numbers(numbers):
         >>> sum_numbers([])
         0
     """
+    sum_numbers = 0
 
-    return None
+    for number in numbers:
+        sum_numbers += number
 
+    return sum_numbers
 
 def mult_numbers(numbers):
     """Return product (result of multiplication) of numbers in list.
