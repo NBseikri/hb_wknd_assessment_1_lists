@@ -240,7 +240,11 @@ def halvesies(numbers):
         #Adds the newly halved number the the halved_numbers list above
     
     return halved_numbers
-    #Returns a list of each halved number in the number list 
+    #Returns a list of each halved number in the number list
+
+
+
+    #To enhance this code, you could include a conditional either ignores or addresses list entries that not integers
 
 def word_lengths(words):
     """Return the length of words in the input list.
@@ -251,8 +255,20 @@ def word_lengths(words):
         [5, 3, 5, 4]
     """
 
-    return []
+    word_lengths = []
+    #Creates a list to house the lengths of all words in the inputted words list
+    
+    for word in words:
+    #Evaluates each word in the inputted words list
+        word_lengths.append(len(word))
+        #Appends the length of each word to the word_lengths list above
+    
+    return word_lengths
+    #Returns the newly populated word_lengths list
 
+
+
+    #To enhance this code you could include a conditional that either ignores or addresses list items that are not words
 
 def sum_numbers(numbers):
     """Return the sum of all of the numbers in the list.
