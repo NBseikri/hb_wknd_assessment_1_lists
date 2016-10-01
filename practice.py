@@ -20,7 +20,7 @@ def print_list(items):
     """
     #If I were writing this function from scratch, I would include the following docstring immediately after declaring the function:
     #"""This function evaluates and prints each item in an input list"""
-    #(Including my docstring along side the docstring above interfered with the doctest so I am including it here as a comment instead)
+    #(Including my docstring within the docstring above interfered with the doctest so I am including it here as a comment instead)
 
     for item in items:
     # Iterates through items (a list) and evaluates each item contained within the list
@@ -43,6 +43,11 @@ def long_words(words):
         >>> long_words(["all", "are", "tiny"])
         []
     """
+
+    #If I were writing this function from scratch, I would include the following docstring immediately after declaring the function:
+    #"""This function evaluates each item in a list and print those items with more than four letters"""
+    #(Including my docstring within the docstring above interfered with the doctest so I am including it here as a comment instead)
+
     long_words = []
     #Creates a long_words variable for a list that will be populated with words exceeding four letters from the for loop below
 
@@ -65,7 +70,7 @@ def long_words(words):
 
         #long_words = [word for word in words if len(word) > 4]
         #This function will assign the words from the input list to this long_words variable if the > 4 condition is met.
-        #If the > 4 condition is not met, the function will return an empty long_words list as instructed.
+        #If the > 4 condition is not met, the function will return an empty long_words list as instructed
         #If, however, you wanted to create a new, separate list of short words that are equal to or less than four letters, you could use the following list comprehension:
         #short_words = [word for word in words if len(word) <= 4]
         #This list comprehension for short words assigns the words from the input list to short_words if the <= 4 condition is met
@@ -86,10 +91,17 @@ def n_long_words(words, n):
         >>> n_long_words(["I", "like", "apples", "bananas", "you"], 5)
         ['apples', 'bananas']
     """
+    #If I were writing this function from scratch, I would include the following docstring immediately after declaring the function:
+    #"""This function evaluates each item in a list and prints the largest number"""
+    #(Including my docstring within the docstring above interfered with the doctest so I am including it here as a comment instead)
+
     n_long_words = []
+    #Creates a n_long_words variable for a list that will be populated with words exceeding n letters from the for loop below
 
     for word in words:
+    #Iterates through words (a list) and evaluates each item contained within the list
         if len(word) > int(n):
+        #Examines whether a word in the words list is greater than n letters; n is set to an intger to ensure it's properly treated as a number or so the user gets terminal error if not a number
             n_long_words.append(word)
 
     return n_long_words
@@ -104,7 +116,7 @@ def n_long_words(words, n):
 
         #n_long_words = [word for word in words if len(word) > n]
         #This function will assign the words from the input list to this n_long_words variable if the > n condition is met.
-        #If the > 4 condition is not met, the function will return an empty long_words list as instructed.
+        #If the > 4 condition is not met, the function will return an empty long_words list as instructed
         #If, however, you wanted to create a new, separate list of short words that are equal to or less than n letters, you could use the following list comprehension:
         #short_words = [word for word in words if len(word) <= n]
         #This list comprehension for short words assigns the words from the input list to short_words if the <= n condition is met
@@ -129,9 +141,29 @@ def smallest_int(numbers):
         >>> smallest_int([]) is None
         True
     """
+    #If I were writing this function from scratch, I would include the following docstring immediately after declaring the function:
+    #"""This function evaluates each item in a list and prints the smallest number"""
+    #(Including my docstring within the docstring above interfered with the doctest so I am including it here as a comment instead)
 
-    return 100
+    if numbers == []:
+        #This condition first checks to see if the input list is empty
+        return None
+        #If the list is empty, it returns None
 
+    #Assuming the input list is populated and the condition above is not met, the function will evaluate the list below
+
+    smallest_int = numbers[0]
+    #This variable is set to the first number in the numbers list and will change as smaller numbers appear in the input list
+
+    for number in numbers:
+    #Evaluates each number in the input list
+        if number < smallest_int:
+        #Evaluates whether the number is less than smallest_int (which is initially set as the first number in the input list)
+            smallest_int = number
+            #The variable smallest_int is intially set at numbers[0] and will be replaced as soon as the for loop encounters a number smaller than numbers[0]. Each time the loop runs and a new number in the list appears that is less than the the number that was last assigned to smallest_int, it will then replace the value of the smallest_int variable. 
+
+    return smallest_int
+    #Returns the smallest number in the input list
 
 def largest_int(numbers):
     """Find the largest integer in a list of integers and return it.
@@ -151,9 +183,33 @@ def largest_int(numbers):
         >>> largest_int([]) is None
         True
     """
+    #If I were writing this function from scratch, I would include the following docstring immediately after declaring the function:
+    #"""This function evaluates each item in a list and prints the largest number"""
+    #(Including my docstring within the docstring above interfered with the doctest so I am including it here as a comment instead)
 
-    return 0
+    if numbers == []:
+        #This condition first checks to see if the input list is empty.
+        return None
+        #If the list is empty, it returns None.
 
+    #Assuming the input list is populated and the condition above is not met, the function will evaluate the list below.
+
+    largest_int = 0
+    #This variable is set at zero and will change as 
+
+    for number in numbers:
+    #Evaluates each number in the input list
+        if number > largest_int:
+        #Evaluates whether the number is greater than largest_int (which is initially set at zero)
+            largest_int = number
+            #The variable largest_int is intially set at zero and will be replaced as soon as the for loop encounters a number greater than zero. Each time the loop runs and a new number in the list is greater than the the number that was last assigned to largest_int appears, it will then replace the value of the largest_int variable. 
+
+    return largest_int
+    #Returns the largest number in the input list
+
+
+
+    #This function could also work by assigning largest_int[0] to the largest_int variable before starting the for loop like the smallest_int function above. This would captures the largest number in a list input where all numbers were below zero.
 
 def halvesies(numbers):
     """Return list of numbers from input list, each divided by two.
