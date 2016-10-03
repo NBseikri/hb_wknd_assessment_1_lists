@@ -295,7 +295,7 @@ def sum_numbers(numbers):
 
     sum_numbers = 0
     #Sets the counter variable sum_numbers to a starting value of zero
-
+    
     for number in numbers:
     #Evaluates each number in the inputted numbers list
         sum_numbers += number
@@ -327,6 +327,11 @@ def mult_numbers(numbers):
         >>> mult_numbers([])
         1
     """
+
+    #If I were writing this function from scratch, I would include the following docstring immediately after declaring the function:
+    #"""This function returns the product of all numbers in an inputted list multiplied by eachother"""
+    #(Including my docstring within the docstring above interfered with the doctest so I am including it here as a comment instead)
+
     mult_numbers = 1
     #Set mult_numbers counter to 1 (could not use zero because x * 0 is always 0)
 
@@ -354,8 +359,19 @@ def join_strings(words):
         >>> join_strings([])
         ''
     """
+    #If I were writing this function from scratch, I would include the following docstring immediately after declaring the function:
+    #"""This function returns a concatenated string containing strings contained in an inputted list"""
+    #(Including my docstring within the docstring above interfered with the doctest so I am including it here as a comment instead)
+    
+    join_strings = ""
+    #Creates an empty string to be populated through the for loop
 
-    return "Not the right thing"
+    for word in words:
+    #Evaluates each word in words
+        join_strings = join_strings + word
+        #Adds each word to the string join_strings
+    return join_strings
+    #Returns the new concatenated string
 
 
 def average(numbers):
@@ -377,9 +393,45 @@ def average(numbers):
     (Think of the best way to handle an empty input list, though,
     a feel free to provide a good solution here.)
     """
+    #If I were writing this function from scratch, I would include the following docstring immediately after declaring the function:
+    #"""This function returns an average for a list of numbers"""
+    #(Including my docstring within the docstring above interfered with the doctest so I am including it here as a comment instead)
 
-    return 0
+    sum_numbers = 0
+        #Sets the counter variable sum_numbers to a starting value of zero
 
+    for number in numbers:
+    #Evaluates each number in the inputted numbers list
+        sum_numbers += number
+        #In each iteration, this line increases the value of sum_numbers by the value of number 
+    average = float(sum_numbers) / len(numbers)
+    #After the for loop gives the sum of all numbers in the inputted list, this line divides that sum by all of the number of numbers (the length) in the inputted list
+    #Float was used to avoid rounding defaults
+    return average
+    #This line returns the average of all lines in the inputted list
+
+
+    #The alternate code below produces an error message if the list is empty
+    #if len(numbers) == 0:
+    #     #Checks for an empty list
+    #     return 'The inputted list does not contain any numbers.'
+    #     #If list is empty it prints an error message
+    # else:
+    #     sum_numbers = 0
+    #     #Sets the counter variable sum_numbers to a starting value of zero
+    #     for number in numbers:
+    #     #Evaluates each number in the inputted numbers list
+    #         sum_numbers += number
+    #         #In each iteration, this line increases the value of sum_numbers by the value of number 
+    # average = float(sum_numbers) / len(numbers)
+    # #After the for loop gives the sum of all numbers in the inputted list, this line divides that sum by all of the number of numbers (the length) in the inputted list
+    # #Float was used to avoid rounding defaults
+    # return average
+    # #This line returns the average of all lines in the inputted list
+    #
+    #
+    #
+    # I tried to create a mechanism that, within the if block, would prompt the user to input an alternate list, assign that entry to the variable numbers and then use that variable in the for loop. When I tried to use numbers = raw_input('Please enter a valid number list:') I got a syntax error (it seems number wasn't recognized as a variable). However, when I reset the numbers variable to a fixed list (ex. [1, 2, 3, 4, 5]) the for loop/rest of the function was able to execute.
 
 def join_strings_with_comma(words):
     """Return ['list', 'of', 'words'] like "list, of, words".
@@ -397,9 +449,31 @@ def join_strings_with_comma(words):
         >>> join_strings_with_comma(["Pretzel"])
         'Pretzel'
     """
+    
+    #If I were writing this function from scratch, I would include the following docstring immediately after declaring the function:
+    #"""This function returns a list with commas and no single quotes"""
+    #(Including my docstring within the docstring above interfered with the doctest so I am including it here as a comment instead)
+     
+    join_strings_with_comma = ''
+    #Creates an empty string to be populated through the for loop
 
-    return ""
+    if len(words) == 1:
+    #Handles one-word entries
+        join_strings_with_comma = words[0]
+        #Sets join_strings_with_comma to the value of the initial and only index
+    else:
+    #Handles longer entries
+        for word in words:
+        #Evaluates each word in words
+            join_strings_with_comma.append(word)
+            #Adds each word to the string join_strings
 
+    return join_strings_with_comma
+    #Returns words with commas between each word
+
+    #I was unable to remove he single quotes from teh final return using 
+    #.strip("'")as the error message indicated that could only be done with 
+    #strings    
 
 def reverse_list(items):
     """Return the input list, reversed.
@@ -423,9 +497,11 @@ def reverse_list(items):
         >>> orig
         ['apple', 'berry', 'cherry']
     """
-
-    return []
-
+    #If I were writing this function from scratch, I would include the following docstring immediately after declaring the function:
+    #"""This function returns the reverse of an inputted list"""
+    #(Including my docstring within the docstring above interfered with the doctest so I am including it here as a comment instead)
+    return items[::-1]
+    #This return statement produces a reversed list of inputs
 
 def reverse_list_in_place(items):
     """Reverse the input list `in place`.
@@ -449,9 +525,19 @@ def reverse_list_in_place(items):
         >>> orig
         ['I', 'love', 'cookies']
     """
+    #If I were writing this function from scratch, I would include the following docstring immediately after declaring the function:
+    #"""This function returns the reverse of an inputted list by modifying the original list"""
+    #(Including my docstring within the docstring above interfered with the doctest so I am including it here as a comment instead)
+    items = items[::-1]
+    #This modifies the inputted list by assigning the reverse order of the list to itself
+    return items
+    #This returns the modified list
 
-    return []
 
+    #This function successfully modifies the list without creating a new list 
+    #(ex. did not create a new list called new_items). It assigns the 
+    #reverse-ordered items to the list itself. I am unsure why this function did 
+    #not manage to pass the doctest. 
 
 def duplicates(items):
     """Return list of words from input list which were duplicates.
@@ -479,8 +565,37 @@ def duplicates(items):
         ['apple', 'apple', 'berry']
     """
 
-    return []
+def duplicates(items):
+    """This function generates a list of duplicates from an inputted list."""
+    #For some reason, I failed the doctest when I didn't repeat the function declaration 
+    #here (using the identical declaration provided before the instructions above 
+    #resulted in a failed test)
 
+    seen = []
+    #This variable will contain a list each item in items that is not a duplicate   
+    dupe = []
+    #This variable will contain a list of each item in items that is a duplicate
+
+    for item in items:
+    #Evaluates each item in items
+        if word in dupe and seen:
+        #This condition prevents an item previously identified as duplicative
+        #from again being directed to the dupe list (ex. if there are three 4's
+        #in a number list, the third instace of 4 should be directed to the seen 
+        #list because a 4 duplicate has already been accounted for.)
+            seen.append(word)
+            #Appends an item in both lists to the seen list
+        elif word in seen:
+        #Handles an item that is in the seen list but not the dupe list
+            dupe.append(word)
+            #Appends an item in the seen list to the dupe list
+        else:
+        #Handles a new item that is not in any list (first instance of the item)
+            seen.append(word)
+            #Appends item to the seen list
+
+    return dupe
+    #Returns the contents of the dupe list which contain the duplicates
 
 def find_letter_indices(words, letter):
     """Return list of indices where letter appears in each word.
@@ -508,8 +623,26 @@ def find_letter_indices(words, letter):
     ("o" does not appear in "jumps", so the result for that input is
     `None`.)
     """
+    #If I were writing this function from scratch, I would include the following docstring immediately after declaring the function:
+    #"""This function returns the index of a character in a string in a list when that 
+    #character is the same as the inputted letter """
+    #(Including my docstring within the docstring above interfered with the doctest so I am including it here as a comment instead)
+    
+    for word in words:
+    #Evaluates each word in words
+        for i in word:
+        #Evaluates each character in each word
+            if i == letter:
+            #Evaluates whether the character is equal to the passed in letter
+                print word.find(i)
+                #Uses .find to print the position of i (the character in word 
+                #that == letter)
 
-    return []
+    return     
+    #I had difficulty imagining what kind of mechanism would extract an unknown index
+    #number of a character from a string within a list. I managed to get my for 
+    #loops and my conditional to examine whether each character was an 'o' but once I got to that 
+    #stage I used .find (which is likely too similar to .index) to print the index.
 
 #####################################################################
 # END OF PRACTICE: You can ignore everything below.
